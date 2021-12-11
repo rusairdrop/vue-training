@@ -30,7 +30,8 @@ import axios from 'axios';
 export default {
   components: {
     MyButton,
-    PostList, PostForm
+    PostList,
+    PostForm,
   },
   data() {
     return {
@@ -53,16 +54,12 @@ export default {
     async fetchPosts() {
       try {
         this.isPostsLoading = true;
-        setTimeout(async () => {
-          const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
-          this.posts = response.data;
-          this.isPostsLoading = false;
-        }, 1500)
-
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10')
+        this.posts = response.data;
       } catch (e) {
         console.log(e);
       } finally {
-
+        this.isPostsLoading = false;
       }
     }
   },
