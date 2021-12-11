@@ -47,6 +47,6 @@ export default {
 }
 
 .post-list-move {
-  transition: transform 0.5s ease;
+  transition: transform 0.7s ease;
 }
 </style>
